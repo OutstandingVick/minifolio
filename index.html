@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio | Minimalist Dark</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #3b82f6; /* Subtle Blue */
+            --card-bg: #161616;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 100px 10%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* --- Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Intro Section --- */
+        #intro {
+            text-align: center;
+        }
+
+        #intro h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        .cta-button:hover {
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        /* --- About Section --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+        }
+
+        .services-list {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+
+        .services-list li {
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+
+        /* --- Featured Works --- */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .work-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: grayscale(100%);
+        }
+
+        .work-card:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        /* --- Testimonials --- */
+        .testimonial-item {
+            max-width: 800px;
+            border-left: 2px solid var(--accent);
+            padding-left: 30px;
+            margin-bottom: 50px;
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .author {
+            color: var(--text-secondary);
+            font-weight: 700;
+        }
+
+        /* --- Mobile Responsiveness (iPhone) --- */
+        @media (max-width: 768px) {
+            section { padding: 60px 5%; }
+            .about-container { grid-template-columns: 1fr; }
+            #intro h1 { letter-spacing: -1px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="intro">
+        <div class="reveal">
+            <h1>Crafting Digital<br>Experiences.</h1>
+            <a href="#works" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="reveal">
+                <h2 style="margin-bottom: 20px;">About Me</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                    I am a creative developer focused on high-performance interfaces. I bridge the gap between complex code and minimalist design.
+                </p>
+            </div>
+            <div class="reveal" style="transition-delay: 0.2s;">
+                <h2 style="margin-bottom: 20px;">Services</h2>
+                <ul class="services-list">
+                    <li>UI/UX Design</li>
+                    <li>Frontend Development</li>
+                    <li>Brand Identity</li>
+                    <li>Motion Design</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="works">
+        <h2 class="reveal" style="margin-bottom: 40px;">Featured Works</h2>
+        <div class="work-grid">
+            <div class="work-card reveal">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Work 1">
+            </div>
+            <div class="work-card reveal" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Work 2">
+            </div>
+            <div class="work-card reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="Work 3">
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2 class="reveal" style="margin-bottom: 40px;">Kind Words</h2>
+        <div class="testimonial-item reveal">
+            <p class="quote">"An absolute professional who understands that the best design is often the simplest."</p>
+            <p class="author">— Sarah Jenkins, Creative Director</p>
+        </div>
+        <div class="testimonial-item reveal" style="transition-delay: 0.2s;">
+            <p class="quote">"The animations are butter-smooth and the attention to detail is unmatched."</p>
+            <p class="author">— Alex Rivera, Founder of TechFlow</p>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Smooth Scrolling for CTA
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#works').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
